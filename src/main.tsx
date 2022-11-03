@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import App from "./App";
-import { UsersPage } from "./Users/UsersPage";
+import { UsersPage, loader as usersLoader } from "./Users/UsersPage";
 import { UserPage } from "./Users/UserPage";
 import "./index.css";
 
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
     <Route path="/">
       <Route element={<App />} index />
       <Route path="users">
-        <Route element={<UsersPage />} index />
+        <Route element={<UsersPage />} index loader={usersLoader} />
         <Route path=":userId" element={<UserPage />} />
       </Route>
     </Route>

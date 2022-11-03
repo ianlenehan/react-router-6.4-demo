@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-import { useGetUsers } from "../hooks/useGetUsers";
+type User = {
+  name: string;
+  id: string;
+};
+
+type LoaderData = {
+  users: User[];
+};
 
 export const UsersPage = () => {
-  const { users, loading } = useGetUsers();
-
-  if (loading) {
-    return <div>Loading users...</div>;
-  }
+  const { users } = useLoaderData() as LoaderData;
 
   return (
     <div className="users-container">
