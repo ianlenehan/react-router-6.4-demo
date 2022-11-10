@@ -1,12 +1,10 @@
 import { Link, useLoaderData } from "react-router-dom";
 
-type User = {
-  name: string;
-  id: string;
-};
+import { UsersCount } from "./UsersCount";
+import type { Users } from "../types";
 
 type LoaderData = {
-  users: User[];
+  users: Users;
 };
 
 export const UsersPage = () => {
@@ -24,6 +22,8 @@ export const UsersPage = () => {
           </Link>
         ))}
       </div>
+
+      <UsersCount />
     </div>
   );
 };
