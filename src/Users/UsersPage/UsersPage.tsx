@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-import { useGetUsers } from "./useGetUsers";
+import { UsersCount } from "./UsersCount";
+import type { Users } from "../types";
+
+type LoaderData = {
+  users: Users;
+};
 
 export const UsersPage = () => {
-  const { users, loading } = useGetUsers();
-
-  if (loading) {
-    return <div>Loading users...</div>;
-  }
+  const { users } = useLoaderData() as LoaderData;
 
   return (
     <div className="users-container">
@@ -21,6 +22,8 @@ export const UsersPage = () => {
           </Link>
         ))}
       </div>
+
+      <UsersCount />
     </div>
   );
 };
