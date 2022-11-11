@@ -8,11 +8,6 @@ type LoaderData = {
 };
 
 export const UserPage = () => {
-  const navigation = useNavigation();
-  console.log(
-    "🚀 ~ file: UserPage.tsx ~ line 12 ~ UserPage ~ navigation",
-    navigation
-  );
   const { user } = useLoaderData() as LoaderData;
 
   return (
