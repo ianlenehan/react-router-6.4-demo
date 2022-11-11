@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 
 import App from "./App";
-import { UsersPage } from "./Users/UsersPage";
-import { UserPage } from "./Users/UserPage";
+import { UsersPage } from "./Users/UsersPage/UsersPage";
+import { UserPage } from "./Users/UserPage/UserPage";
 import "./index.css";
 
 const router = createBrowserRouter(

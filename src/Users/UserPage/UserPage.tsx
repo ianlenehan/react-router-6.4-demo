@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 
-import { useGetUser } from "../hooks/useGetUser";
+import { useGetUser } from "./useGetUser";
 
 export const UserPage = () => {
-  const { userId } = useParams();
-  const { user, loading } = useGetUser(userId || "");
+  const { userId = "" } = useParams();
+  const { user, loading } = useGetUser(userId);
 
   if (loading) {
     return <div>Loading user...</div>;

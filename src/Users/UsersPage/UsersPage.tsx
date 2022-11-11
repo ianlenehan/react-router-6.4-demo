@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { useGetUsers } from "../hooks/useGetUsers";
+import { useGetUsers } from "./useGetUsers";
 
 export const UsersPage = () => {
   const { users, loading } = useGetUsers();
