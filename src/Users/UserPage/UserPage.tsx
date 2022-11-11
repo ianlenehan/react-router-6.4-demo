@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useNavigation } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 import { Age } from "./Age";
 import type { User } from "../types";

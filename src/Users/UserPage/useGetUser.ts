@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 type User = {
   name: string;
@@ -13,17 +13,23 @@ const USERS = [
   { name: "Carol", id: "3", age: 51, favouriteColor: "green" },
 ];
 
+const awaitTimeout = (delay: number) =>
+  new Promise((resolve) => setTimeout(resolve, delay));
+
 export const useGetUser = (userId: string) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User>();
 
-  useEffect(() => {
-    setTimeout(() => {
-      const user = USERS.find((u) => u.id === userId);
-      setUser(user);
-      setLoading(false);
-    }, 500);
+  const loadUser = useCallback(async () => {
+    await awaitTimeout(300);
+    const user = USERS.find((u) => u.id === userId);
+    setUser(user);
+    setLoading(false);
   }, []);
+
+  useEffect(() => {
+    loadUser;
+  }, [loadUser]);
 
   return { user, loading };
 };
