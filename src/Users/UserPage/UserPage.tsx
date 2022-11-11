@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
+import { Age } from "./Age";
 import { useGetUser } from "./useGetUser";
 
 export const UserPage = () => {
@@ -19,7 +20,7 @@ export const UserPage = () => {
       <h1>User Page</h1>
       <Link to="/users">Back to Users</Link>
       <h2>{user.name}</h2>
-      <p>Age: {user.age}</p>
+      <Age age={user.age} />
       <p>Favourite colour: {user.favouriteColor}</p>
     </div>
   );
